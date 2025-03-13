@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Forget Password</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
@@ -170,24 +170,19 @@
             <li>{{ Session::get('success') }}</li>
         @endif
         
-<form action="{{ route('admin.login_submit') }}" method="post">
+<form action="{{ route('admin.password_submit') }}" method="post">
     @csrf
 
     <div class="login-container">
         <div class="login-form">
-            <h2>LOGIN</h2>
+            <h2>Forget Password</h2>
             <div class="input-group">
                 <i class="fas fa-user"></i>
                 <input class="email" type="email" name="email" placeholder="Email" required>
             </div>
-            <div class="input-group">
-                <i class="fas fa-lock"></i>
-                <input type="password" name="password" placeholder="Password" required>
-            </div>
-            <button type="submit" class="btn">Submit</button>
-            <p class="divider">ATAU</p>
-            <p class="link"><a href="#">DAFTAR</a> tidak memiliki akun</p>
-            <a href="{{ route('admin.forget_password') }}">Forget Password?</a>
+
+            <button type="submit" class="btn">Email Password Reset Link</button>
+           
         </div>
         <div class="image-container">
             <img src="{{ asset('images/logo.jpg') }}" alt="Profile Image"> <!-- Ganti dengan path yang benar -->
