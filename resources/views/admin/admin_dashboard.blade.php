@@ -31,7 +31,7 @@
                      <span>⚙️</span> <span>Pengaturan</span>
                  </li>
                  <li class="flex items-center gap-3 text-red-500 hover:text-red-400 transition-all cursor-pointer">
-                     <span>🚪</span> <span>Logout</span>
+                     <span>🚪</span> <a href="{{ route('admin.logout') }}">Log Out</a>
                  </li>
              </ul>
          </div>
