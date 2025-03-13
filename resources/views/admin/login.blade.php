@@ -23,7 +23,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             width: 600px;
-            padding: 20px;
+            margin-top: 30px;
             align-items: center;
             justify-content: space-between;
         }
@@ -54,6 +54,12 @@
             width: 100%;
             padding: 10px;
             font-size: 14px;
+        }
+        .email{
+            border: none;
+            outline: none;
+            background: transparent;
+            padding-left: 7px;
         }
         .btn {
             background-color: rgb(211, 216, 225);
@@ -92,25 +98,59 @@
             border-radius: 20px;
             object-fit: cover;
         }
-        .footer {
+        .forgot-password {
+             font-size: 12px;
+             color: #007bff;
+             text-decoration: underline;
+             cursor: pointer;
+             margin-top: 10px;
+         }
+        .footer-container {
+             width: 100%;
+             background-color: #e5eaf2;
+             padding: 20px;
+             border-radius: 10px;
+             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
-            text-align: center;
-            font-size: 12px;
-            color: #666;
         }
-        .footer p {
-            margin: 5px 0;
+        .footer {
+            display: flex;
+             justify-content: space-around;
+             align-items: center;
         }
-        .social-icons {
+        .footer div {
+             text-align: center;
+         }
+         .footer h3 {
+            font-size: 16px;
+            font-weight: bold;
             display: flex;
             justify-content: center;
-            margin-top: 10px;
         }
-        .social-icons a {
-            margin: 0 10px;
-            text-decoration: none;
-            color: #666;
+        .footer i{
+            margin-right: 8px;
+            color: #d84315;
         }
+        .footer a {
+             text-decoration: none;
+             color: #007bff;
+             font-weight: bold;
+         }
+         .footer a:hover {
+             color: #ff6600;
+         }
+         .footer p {
+             font-size: 14px;
+             color: #333;
+             margin: 5px 0;
+         }
+         .footer-bottom {
+             text-align: center;
+             font-size: 12px;
+             color: #666;
+             margin-top: 10px;
+         }
+
     </style>
 </head>
 <body>
@@ -134,11 +174,11 @@
     @csrf
 
     <div class="login-container">
-        <h2>LOGIN</h2>
         <div class="login-form">
+            <h2>LOGIN</h2>
             <div class="input-group">
                 <i class="fas fa-user"></i>
-                <input type="email" name="email" placeholder="Email" required>
+                <input class="email" type="email" name="email" placeholder="Email" required>
             </div>
             <div class="input-group">
                 <i class="fas fa-lock"></i>
@@ -147,23 +187,32 @@
             <button type="submit" class="btn">Submit</button>
             <p class="divider">ATAU</p>
             <p class="link"><a href="#">DAFTAR</a> tidak memiliki akun</p>
+            <p class="forgot-password">Lupa Password?</p>
         </div>
         <div class="image-container">
             <img src="{{ asset('images/logo.jpg') }}" alt="Profile Image"> <!-- Ganti dengan path yang benar -->
         </div>
     </div>
     </form>
-    <div class="footer">
-        <p>Alamat</p>
-        <p>IKUTI KAMI : Instagram, Shopee</p>
-        <p>Kontak Kami: 0812345678908</p>
-        <p>Kontak Kami: 0812345678908</p>
-        <div class="social-icons">
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">Twitter</a>
-        </div>
-        <p>Copyright © 2025. Project Based Learning</p>
+    <div class="footer-container">
+         <div class="footer">
+             <div>
+                 <h3><i class="fas fa-map-marker-alt"></i> Alamat</h3>
+                 <p>Galaxy Store, Srono</p>
+             </div>
+             <div>
+                 <h3><i class="fas fa-bullhorn"></i> Ikuti Kami</h3>
+                 <p><a href="#">Instagram</a> <a href="#" style="color: orange;">Shopee</a></p>
+             </div>
+             <div>
+                 <h3><i class="fas fa-phone-alt"></i> Kontak Kami</h3>
+                 <p>0812-3456-7890</p>
+                 <p>0812-9876-5432</p>
+             </div>
+         </div>
+         <div class="footer-bottom">
+             © 2025 Galaxy Store - All Rights Reserved.
+         </div>
     </div>
 </body>
 </html>
