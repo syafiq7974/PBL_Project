@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\Websitemail;
 use App\Models\Admin;
+use Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Mail;
@@ -70,5 +71,19 @@ class AdminController extends Controller
             return redirect()->route('admin.login')->with('error', 'Invalid Token Or Email');
         }
         return view('admin.reset_password', compact('token', 'email'));
+    }
+
+    public function AdminResetPasswordSubmit(Request $request){
+        $request->validate([
+            'password' => 'required',
+            'password_confirmation' => 'required|same:password'
+        ]);
+        $admin_data = Admin::where('email', $request->email)->where('token', $request->token)->first();
+        $admin_data->password = Hash::make($request->password);
+        $admin_data->token = "";
+        $admin_data->update();
+
+        return redirect()->route('admin.login')->with('success', 'Password Reset Success');
+
     }
 }
