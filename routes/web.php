@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\DashboardController;
 
 
 Route::get('/', function () {
@@ -43,3 +44,5 @@ Route::get('/client/login', [ClientController::class, 'showLoginForm'])->name('c
 Route::get('/client/register', [ClientController::class, 'showRegistrationForm'])->name('client.register');
 Route::post('/client/register', [ClientController::class, 'register'])->name('client.register.submit');
 Route::get('/client/forget_password', [ClientController::class, 'clientForgetPassword'])->name('client.forget_password');
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
