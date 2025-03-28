@@ -9,6 +9,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductadminController;
 use App\Http\Controllers\ProfilePenggunaController;
+use App\Http\Controllers\ProdukController;
 
 
 Route::get('/', function () {
@@ -51,3 +52,4 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::get('/admin/products', [ProductController::class, 'index'])->name('admin.products.index');
 Route::get('/profil', [ProfilePenggunaController::class, 'show'])->name('profil.show');
+Route::get('/produk', [ProdukController::class, 'index'])->name('produk.index');
