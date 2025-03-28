@@ -7,6 +7,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProductadminController;
+use App\Http\Controllers\ProfilePenggunaController;
 
 
 Route::get('/', function () {
@@ -46,3 +48,6 @@ Route::post('/client/register', [ClientController::class, 'register'])->name('cl
 Route::get('/client/forget_password', [ClientController::class, 'clientForgetPassword'])->name('client.forget_password');
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
+
+Route::get('/admin/products', [ProductController::class, 'index'])->name('admin.products.index');
+Route::get('/profil', [ProfilePenggunaController::class, 'show'])->name('profil.show');
